@@ -1,16 +1,53 @@
 import logo from './logo.svg';
 import './App.css';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { SDK_VERSION } from 'firebase/app';
-import Home from './pages/Home'
+import Home from './pages/Home';
+import Navbar from './components/Navbar/navbar';
+import Footer from './components/Footer/footer';
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Route,
+  Outlet
+} from "react-router-dom";
+import { Children } from 'react';
+import Products from './pages/Products';
+import Product from './pages/Product';
+
+const Layout = () => {
+  return (
+    <div className='App'>
+      <Navbar />
+      <Outlet />
+      <Footer />
+    </div>
+  );
+};
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layout />,
+    children: [
+      {
+        path: "/",
+        element: <Home />
+      },
+      {
+        path: "/products/:id",
+        element: <Products />
+      },
+      {
+        path: "/product/:id",
+        element: <Product />
+      }
+
+    ]
+  }
+]);
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path='/' element={<Home />} />
-      </Routes>
-    </Router>
+    <RouterProvider router={router} />
   );
 }
 
