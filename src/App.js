@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import { SDK_VERSION } from 'firebase/app';
 import Home from './pages/Home';

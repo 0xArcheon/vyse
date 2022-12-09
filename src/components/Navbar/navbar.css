@@ -1,0 +1,24 @@
+.navbar {
+    padding: 25px;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.left, .right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.icon-img {
+    height: 50px;
+    width: 100px; 
+}
+ .category {
+    text-decoration: none;
+    color: #524FBF;
+ }
