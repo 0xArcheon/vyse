@@ -1,0 +1,22 @@
+.footer {
+    color: white;
+    background-color: #262171;
+    padding: 85px 5px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.footer > *{
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-direction: column;
+}
+.links {
+    display: flex;
+    gap: 24px;
+}
+a {
+    text-decoration: none;
+    color: #D8AFF3;
+}

@@ -19,7 +19,7 @@ function navbar() {
                         <Link to="/Products/1" className='category'>Categories</Link>
                     </div>
                     <div className="item">
-                        <TextField id="outlined-basic" label="Search Product" variant="outlined" />
+                        <TextField id="outlined-basic" size='small' label="Search Product" variant="outlined" />
                     </div>
                     <div className="item">
                         <SearchTwoToneIcon sx={{ color: "#524FBF" }} />
