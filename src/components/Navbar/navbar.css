@@ -1,5 +1,5 @@
 .navbar {
-    padding: 25px;
+    padding: 25px 150px;
     height: 80px;
     display: flex;
     justify-content: space-between;
@@ -21,4 +21,5 @@
  .category {
     text-decoration: none;
     color: #524FBF;
+    font-weight: 700;
  }

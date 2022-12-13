@@ -12,11 +12,8 @@ function navbar() {
             <div className='navbar'>
                 <div className='left'>
                     <div className='item'>
-                        <img src='/images/logoDark.png' className='icon-img'></img>
+                        <img src='/images/logoDark.png' className='icon-img' alt='Vyse Logo'></img>
                         <Link to="/"></Link>
-                    </div>
-                    <div className="item">
-                        <Link to="/Products/1" className='category'>Categories</Link>
                     </div>
                     <div className="item">
                         <TextField id="outlined-basic" size='small' label="Search Product" variant="outlined" />
@@ -26,6 +23,9 @@ function navbar() {
                     </div>
                 </div>
                 <div className='right'>
+                    <div className="item">
+                        <Link to="/Products/1" className='category'>Categories</Link>
+                    </div>
                     <FavoriteIcon sx={{ color: "#524FBF" }} />
                     <AccountCircleIcon sx={{ color: "#524FBF" }} />
                 </div>
