@@ -10,9 +10,9 @@ function card({ item }) {
                     <img src={item.img2} alt="" className="secondImg"></img>
                 </div>
                 <div className="box">
-                    <h2>{item.title}</h2>
+                    <span>{item.title}</span>
                     <div className="price">
-                        <h2>₹ {item.price}</h2>
+                        <span>₹ {item.price}</span>
                     </div>
                 </div>
             </div>

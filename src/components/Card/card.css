@@ -1,15 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&family=Roboto:wght@100&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Quattrocento+Sans&family=Raleway:wght@300&family=Roboto:wght@500&display=swap');
 .card {
     font-family: 'Roboto', sans-serif;
-    font-size: 12px;
-    font-weight: 100;
+    font-weight: 200;
     color: black;
     width: 250px;
     display: flex;
     flex-direction: column;
-    box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
-    border-radius: 12px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
 }
 
 .image {
@@ -26,11 +23,19 @@
  .mainImg {
     z-index: 1;
  }
+ .mainImg:hover {
+   display: none;
+}
  .box {
-    font-size: 10px;
+    font-size: 14px;
     padding: 12px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+ }
+ .price {
+   padding-top: 10px;
+   font-weight: 500;
+   font-size: 16px;
  }

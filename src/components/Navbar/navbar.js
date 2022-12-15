@@ -13,8 +13,9 @@ function navbar() {
             <div className='navbar'>
                 <div className='left'>
                     <div className='item'>
-                        <img src='/images/logoDark.png' className='icon-img' alt='Vyse Logo'></img>
-                        <Link to="/"></Link>
+                        <Link to="/">
+                            <img src='/images/logoDark.png' className='icon-img' alt='Vyse Logo'></img>
+                        </Link>
                     </div>
                     <ConfigProvider
                         theme={{

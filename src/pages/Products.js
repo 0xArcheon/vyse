@@ -1,8 +1,8 @@
 import React from 'react'
-
+import Categories from '../components/Categories/categories'
 function Products() {
     return (
-        <div>Products</div>
+        <Categories />
     )
 }
 
