@@ -39,7 +39,7 @@ function navbar() {
                 </div>
                 <div className='right'>
                     <div className="item">
-                        <Link to="/Products/1" className='category'>Categories</Link>
+                        <Link to="/Products/1" className='category'>Listings</Link>
                     </div>
                     <FavoriteIcon fontSize='large' sx={{ color: "#524FBF" }} />
                     <AccountCircleIcon fontSize='large' sx={{ color: "#524FBF" }} />

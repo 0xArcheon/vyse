@@ -1,0 +1,13 @@
+.products {
+    margin : 50px 150px;
+}
+.search {
+    display: flex;
+    justify-content: flex-start;
+}
+.title {
+    padding: 40px 20px;
+}
+.card-container {
+
+}
