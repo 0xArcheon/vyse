@@ -3,6 +3,7 @@ import { SDK_VERSION } from 'firebase/app';
 import Home from './pages/Home';
 import Navbar from './components/Navbar/navbar';
 import Footer from './components/Footer/footer';
+import Login from './pages/Login';
 import {
   createBrowserRouter,
   RouterProvider,
@@ -23,6 +24,10 @@ const Layout = () => {
   );
 };
 const router = createBrowserRouter([
+  {
+    path: "/Login",
+    element: <Login />
+  },
   {
     path: "/",
     element: <Layout />,
