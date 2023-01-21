@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import SignupFormCSS from './SignupForm.module.css'
-import { createUserWithEmailAndPassword } from "firebase/auth"
-import { auth } from '../firebase-config'
+import { createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth"
+import { collection, addDoc } from "firebase/firestore"
+import { auth, db } from '../firebase-config'
+
 const SignupForm = (props) => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -13,9 +15,24 @@ const SignupForm = (props) => {
             e.preventDefault();
             const user = await createUserWithEmailAndPassword(auth, email, password);
             console.log(user);
+            storeData();
         }
         catch (error) {
             console.log(error.message);
+        }
+    }
+
+    const storeData = async () => {
+        try {
+            const docRef = await addDoc(collection(db, "User"), {
+                fullName: name,
+                email: email,
+                phone: phone,
+                isAdmin: false
+            });
+            console.log("Document written with ID: ", docRef.id);
+        } catch (e) {
+            console.error("Error adding document: ", e);
         }
     }
 
