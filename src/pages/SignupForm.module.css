@@ -1,5 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
 .body{
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: 'Raleway', sans-serif;
 }
 
 .header{
@@ -7,23 +8,23 @@
 }
 
 .headimg{
-  height: 8vh;
-  width: 9vh;
+  height: 60px;
+  width: 100px;
   padding: 10px;
 
 }
 
 .wel{
     font-size: 10px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Raleway', sans-serif;
 }
 
 .myForm{
 
     display: inline-block;
     height: 70.6vh;
-    padding: 128px 118px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding: 128px 98px;
+    font-family: 'Raleway', sans-serif;
 }
 
 .colLeft{
@@ -37,11 +38,13 @@
 
 
 .colRight{
-
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 65%;
     float: right;
     background-color: #7065F0;
-    height: 100vh;
+    height: 120vh;
 }
 
 input{
@@ -178,4 +181,10 @@ a:hover{
   .formContainer .btn:hover,
   .openButton:hover {
     opacity: 1;
+  }
+  .bottomCont {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }

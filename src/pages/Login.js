@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import LoginForm from './LoginForm';
 import SignupForm from './SignupForm';
-
 function Login() {
     const [currentForm, setCurrentForm] = useState('login');
 
@@ -13,7 +12,6 @@ function Login() {
             {
                 currentForm === "login" ? <LoginForm onFormSwitch={toggleForm} /> : <SignupForm onFormSwitch={toggleForm} />
             }
-
         </>
     )
 }
