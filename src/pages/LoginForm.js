@@ -1,13 +1,20 @@
 import React, { useState } from 'react'
 import LoginFormCSS from './LoginForm.module.css'
-
+import { signInWithEmailAndPassword } from 'firebase/auth'
+import { auth } from '../firebase-config'
 const LoginForm = (props) => {
     const [L_email, setL_email] = useState('');
     const [pass, setPass] = useState('');
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log(L_email);
+    const handleSubmit = async (e) => {
+        try {
+            e.preventDefault();
+            const user = await signInWithEmailAndPassword(auth, L_email, pass);
+            console.log(user);
+        }
+        catch (error) {
+            console.log(error.message);
+        }
     }
 
     return (
