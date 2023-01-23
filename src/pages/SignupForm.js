@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import SignupFormCSS from './SignupForm.module.css'
 import { createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth"
 import { collection, addDoc } from "firebase/firestore"
@@ -9,6 +9,7 @@ const SignupForm = (props) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [phone, setPhone] = useState('');
+    const [user, setUser] = useState({});
 
     const handleSubmit = async (e) => {
         try {
@@ -19,6 +20,7 @@ const SignupForm = (props) => {
         }
         catch (error) {
             console.log(error.message);
+
         }
     }
 
@@ -35,6 +37,10 @@ const SignupForm = (props) => {
             console.error("Error adding document: ", e);
         }
     }
+
+    onAuthStateChanged(auth, (currentUser) => {
+        setUser = currentUser;
+    });
 
     return (
         <div className={SignupFormCSS.Outer}>

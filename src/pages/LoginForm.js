@@ -2,17 +2,26 @@ import React, { useState } from 'react'
 import LoginFormCSS from './LoginForm.module.css'
 import { signInWithEmailAndPassword } from 'firebase/auth'
 import { auth } from '../firebase-config'
+import { useNavigate, Link } from 'react-router-dom'
+
 const LoginForm = (props) => {
     const [L_email, setL_email] = useState('');
     const [pass, setPass] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         try {
             e.preventDefault();
-            const user = await signInWithEmailAndPassword(auth, L_email, pass);
+            setIsLoading(true);
+            const user = await signInWithEmailAndPassword(auth, L_email, pass).then(() => {
+                setIsLoading(false);
+                navigate("/");
+            });
             console.log(user);
         }
         catch (error) {
+            setIsLoading(false);
             console.log(error.message);
         }
     }
