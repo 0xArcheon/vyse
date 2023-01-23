@@ -14,6 +14,7 @@ import { Children } from 'react';
 import Products from './pages/Products';
 import Product from './pages/Product';
 
+
 const Layout = () => {
   return (
     <div className='App'>
@@ -48,6 +49,7 @@ const router = createBrowserRouter([
     ]
   }
 ]);
+
 
 function App() {
   return (
