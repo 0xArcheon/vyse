@@ -3,7 +3,7 @@ import Banner from '../components/Banner/banner';
 import Featured from '../components/Featured/featured';
 import Categories from '../components/Categories/categories';
 import { useEffect } from 'react';
-import { SET_ACTIVE_USER } from '../redux/slice/authSlice';
+import { REMOVE_ACTIVE_USER, SET_ACTIVE_USER } from '../redux/slice/authSlice';
 import { auth } from '../firebase-config';
 import { onAuthStateChanged } from 'firebase/auth';
 import { useDispatch } from 'react-redux';
@@ -19,6 +19,9 @@ function Home() {
                     userID: user.uid,
                     email: user.email,
                 }))
+            }
+            else {
+                dispatch(REMOVE_ACTIVE_USER())
             }
         })
     })

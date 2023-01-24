@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { Input, ConfigProvider } from 'antd';
@@ -10,9 +10,11 @@ import MenuItem from '@mui/material/MenuItem';
 import FaceIcon from '@mui/icons-material/Face';
 import Logout from '@mui/icons-material/Logout';
 import "./navbar.css";
+import { REMOVE_ACTIVE_USER } from '../../redux/slice/authSlice';
+import { getAuth, signOut } from "firebase/auth";
+
 
 const { Search } = Input;
-
 function Navbar() {
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
@@ -22,6 +24,17 @@ function Navbar() {
     const handleClose = () => {
         setAnchorEl(null);
     };
+    const navigate = useNavigate();
+    const auth = getAuth();
+    const logoutUser = () => {
+        signOut(auth).then(() => {
+            navigate("/Login");
+            REMOVE_ACTIVE_USER();
+            console.log(auth.currentUser);
+        }).catch((error) => {
+
+        });
+    }
     return (
         <div className='nav-container'>
             <div className='navbar'>
@@ -108,7 +121,7 @@ function Navbar() {
                 <MenuItem>
                     <BookmarkAddedIcon /> My Listings
                 </MenuItem>
-                <MenuItem>
+                <MenuItem onClick={logoutUser}>
                     <Logout /> Logout
                 </MenuItem>
             </Menu>
