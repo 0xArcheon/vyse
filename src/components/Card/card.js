@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import LocationOnIcon from '@mui/icons-material/LocationOn';
 import "./card.css"
 function card({ item }) {
     return (
@@ -13,6 +14,9 @@ function card({ item }) {
                     <span>{item.title}</span>
                     <div className="price">
                         <span>₹ {item.price}</span>
+                    </div>
+                    <div className="location">
+                        <span><LocationOnIcon /> {item.location}</span>
                     </div>
                 </div>
             </div>
