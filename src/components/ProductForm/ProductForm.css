@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
+.body{
+  font-family: 'Raleway', sans-serif;
+}
+.wel{
+    font-size: 10px;
+    font-family: 'Raleway', sans-serif;
+}
+
+.myForm{
+    display: flex;
+    flex-direction: column;
+    font-family: 'Raleway', sans-serif;
+}
+
+.addField{
+    padding: 10px;
+    width: 100%;
+    border: 1px solid rgba(128, 128, 128, 0.363);
+    border-radius: 8px;
+}
+
+Select {
+    padding: 12px;
+} 
+.field{
+    padding: 10px;
+    font-size: 18px;
+    width: 100%;
+}
+
+a:hover{
+    color: black;
+}
+
+.forCont{
+    padding-top: 10px;
+    padding-left:150px;
+}
+
+.for{
+    font-size: 14px;
+    color: #7065F0;
+    text-decoration: none;
+
+}
+
+.btn{
+    background-color: #7065F0;
+    color: white;
+    cursor: pointer;
+    padding: 16px;
+    width: 14vw;
+    border: 1px solid grey;
+    border-radius: 8px;
+    font-size: 18px;
+}
+
+.dont{
+    padding: 4px 126px;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.signup{
+    background-color: white;
+    color: #7065F0;
+    cursor: pointer;
+    border: 3px solid #7065F0;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 300;
+    padding: 6px 6px;
+}
+
+.signup:hover{
+    /* background-color: #a8a1f1; */
+    background-color: #7065F0;
+    border: 3px solid #453f8f;
+    color: white;
+}
+
+.logindiv{
+    padding-top: 10px;
+    padding-left: 173px;
+}
+
+label {
+    padding-right: 24px;
+    font-size: 14px;
+}
+
+*{
+    box-sizing: border-box;
+  }
+  .openBtn {
+    display: flex;
+    justify-content: left;
+  }
+  .openButton {
+    border: none;
+    border-radius: 5px;
+    background-color: #1c87c9;
+    color: white;
+    padding: 14px 20px;
+    cursor: pointer;
+    position: fixed;
+  }
+  .SigninPopup {
+    position: relative;
+    text-align: center;
+    width: 100%;
+  }
+  .formPopup {
+    display: none;
+    position: fixed;
+    left: 45%;
+    top: 5%;
+    transform: translate(-50%, 5%);
+    border: 3px solid #999999;
+    z-index: 9;
+  }
+  .formContainer {
+    max-width: 300px;
+    padding: 20px;
+    background-color: #fff;
+  }
+  .formContainer input[type=text],
+  .formContainer input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 20px 0;
+    border: none;
+    background: #eee;
+  }
+  .formContainer input[type=text]:focus,
+  .formContainer input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+  .formContainer .btn {
+    padding: 12px 20px;
+    border: none;
+    background-color: #8ebf42;
+    color: #fff;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 15px;
+    opacity: 0.8;
+  }
+  .formContainer .cancel {
+    background-color: #cc0000;
+  }
+  .formContainer .btn:hover,
+  .openButton:hover {
+    opacity: 1;
+  }
+  .bottomCont {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
