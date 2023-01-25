@@ -11,8 +11,8 @@ function Banner() {
             <div className="left">
                 <h1 className='bannertxt'>
                     Buy, Sell or Trade <br />
-                    your goods easily<br />
-                    with Zero fees
+                    your goods<br />
+                    easily with Zero fees
                 </h1>
                 <ConfigProvider
                     theme={{

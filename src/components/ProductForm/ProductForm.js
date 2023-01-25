@@ -2,6 +2,10 @@ import React from 'react'
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import { useState } from 'react';
+import { collection, addDoc } from "firebase/firestore"
+import { db } from "../../firebase-config"
+import { getAuth } from "firebase/auth";
+
 import './ProductForm.css'
 
 function ProductForm() {
@@ -13,8 +17,30 @@ function ProductForm() {
     const [locality, setLocality] = useState('')
     const [photos, setPhotos] = useState('');
 
-    const handleSubmit = async (e) => { };
-
+    const auth = getAuth();
+    const user = auth.currentUser;
+    const email = user.email;
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        storeData();
+    };
+    const storeData = async () => {
+        try {
+            const docRef = await addDoc(collection(db, "Listings"), {
+                sellerMail: email,
+                title: title,
+                category: category,
+                price: price,
+                description: description,
+                pincode: pincode,
+                locality: locality,
+                photos: photos,
+            });
+            console.log("Document written with ID: ", docRef.id);
+        } catch (e) {
+            console.error("Error adding document: ", e);
+        }
+    }
     const handleChange = (event) => {
         setCategory(event.target.value);
     };
