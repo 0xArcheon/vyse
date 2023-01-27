@@ -20,6 +20,10 @@
     border-radius: 8px;
 }
 
+.picker {
+  display: flex;
+}
+
 Select {
     padding: 12px;
 } 

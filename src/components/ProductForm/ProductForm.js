@@ -3,10 +3,13 @@ import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import { useState } from 'react';
 import { collection, addDoc } from "firebase/firestore"
-import { db } from "../../firebase-config"
+import { db } from "../../firebase-config";
 import { getAuth } from "firebase/auth";
+import './ProductForm.css';
+import { v4 } from 'uuid';
+import { storage } from '../../firebase-config';
+import { ref, uploadBytes } from 'firebase/storage';
 
-import './ProductForm.css'
 
 function ProductForm() {
     const [title, setTitle] = useState('');
@@ -15,7 +18,7 @@ function ProductForm() {
     const [description, setDescription] = useState('');
     const [pincode, setPincode] = useState('');
     const [locality, setLocality] = useState('')
-    const [photos, setPhotos] = useState('');
+    const [photos, setPhotos] = useState(null);
 
     const auth = getAuth();
     const user = auth.currentUser;
@@ -23,6 +26,7 @@ function ProductForm() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         storeData();
+        uploadFile();
     };
     const storeData = async () => {
         try {
@@ -34,13 +38,22 @@ function ProductForm() {
                 description: description,
                 pincode: pincode,
                 locality: locality,
-                photos: photos,
+
             });
             console.log("Document written with ID: ", docRef.id);
         } catch (e) {
             console.error("Error adding document: ", e);
         }
     }
+
+    const uploadFile = () => {
+        if (photos == null) return;
+        const imageRef = ref(storage, `Listings/${photos.name + v4()}`);
+        uploadBytes(imageRef, photos).then(() => {
+            alert("Upload Successful!");
+        });
+    };
+
     const handleChange = (event) => {
         setCategory(event.target.value);
     };
@@ -51,7 +64,8 @@ function ProductForm() {
                 <div className="field" >
                     <label htmlFor="name">Product Name/Title</label>
                     <div className="inputfield">
-                        <input className='addField' type="text" name="title" id="title" autoComplete='off'
+                        <input className='addField' type="text" name="title"
+                            id="title" autoComplete='off'
                             value={title} onChange={(e) => setTitle(e.target.value)} />
                     </div>
 
@@ -79,7 +93,8 @@ function ProductForm() {
                 <div className="field">
                     <label htmlFor="email">Description</label>
                     <div className="inputfield">
-                        <input type="text" className='addField' name="desciption" id="desciption" autoComplete='off'
+                        <input type="text" className='addField' name="desciption"
+                            id="desciption" autoComplete='off'
                             value={description} onChange={(e) => setDescription(e.target.value)}
                         />
                     </div>
@@ -98,7 +113,8 @@ function ProductForm() {
                 <div className="field">
                     <label htmlFor="pass">Locality</label>
                     <div className="inputfield">
-                        <input type="text" className='addField' name="address" id="address" autoComplete='off'
+                        <input type="text" className='addField' name="address" id="address"
+                            autoComplete='off'
                             value={locality} onChange={(e) => setLocality(e.target.value)}
                             placeholder=""
                         />
@@ -107,10 +123,13 @@ function ProductForm() {
                 <div className="field">
                     <label htmlFor="pass">Upload Photos</label>
                     <div className="inputfield">
-                        <input type="file" className='addField' name="photos" multiple accept="image/png, image/jpeg" id="photos" autoComplete='off'
-                            value={photos} onChange={(e) => setPhotos(e.target.value)}
+                        <input type="file" className='addField' name="photos"
+                            accept="image/png, image/jpeg"
+                            id="photos" autoComplete='off'
+                            onChange={(e) => setPhotos(e.target.files[0])}
                         />
                     </div>
+
                 </div>
                 <div className="field">
                     <button type="submit" className="btn">Post Ad</button>
