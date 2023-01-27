@@ -8,7 +8,7 @@ import { getAuth } from "firebase/auth";
 import './ProductForm.css';
 import { v4 } from 'uuid';
 import { storage } from '../../firebase-config';
-import { ref, uploadBytes } from 'firebase/storage';
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
 
 function ProductForm() {
@@ -18,7 +18,12 @@ function ProductForm() {
     const [description, setDescription] = useState('');
     const [pincode, setPincode] = useState('');
     const [locality, setLocality] = useState('')
-    const [photos, setPhotos] = useState(null);
+    const [photo, setPhoto] = useState(null);
+    const [photo2, setPhoto2] = useState(null);
+    const [photo3, setPhoto3] = useState(null);
+    const [photo1URL, setPhotoURL] = useState(null);
+    const [photo2URL, setPhotoURL2] = useState(null);
+    const [photo3URL, setPhotoURL3] = useState(null);
 
     const auth = getAuth();
     const user = auth.currentUser;
@@ -26,7 +31,6 @@ function ProductForm() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         storeData();
-        uploadFile();
     };
     const storeData = async () => {
         try {
@@ -38,6 +42,9 @@ function ProductForm() {
                 description: description,
                 pincode: pincode,
                 locality: locality,
+                img1: photo1URL,
+                img2: photo2URL,
+                img3: photo3URL,
 
             });
             console.log("Document written with ID: ", docRef.id);
@@ -47,11 +54,31 @@ function ProductForm() {
     }
 
     const uploadFile = () => {
-        if (photos == null) return;
-        const imageRef = ref(storage, `Listings/${photos.name + v4()}`);
-        uploadBytes(imageRef, photos).then(() => {
-            alert("Upload Successful!");
+        if (photo == null || photo2 == null || photo3 == null) return;
+        const photo1Name = `Listings/${photo.name + v4()}`
+        const imageRef = ref(storage, photo1Name);
+        uploadBytes(imageRef, photo).then(() => {
+            getDownloadURL(ref(storage, photo1Name)).then((url) => {
+                setPhotoURL(url);
+            });
         });
+
+        const photo2Name = `Listings/${photo2.name + v4()}`
+        const imageRef2 = ref(storage, photo2Name);
+        uploadBytes(imageRef2, photo2).then(() => {
+            getDownloadURL(ref(storage, photo2Name)).then((url) => {
+                setPhotoURL2(url);
+            });
+        });
+
+        const photo3Name = `Listings/${photo3.name + v4()}`
+        const imageRef3 = ref(storage, photo3Name);
+        uploadBytes(imageRef3, photo3).then(() => {
+            getDownloadURL(ref(storage, photo3Name)).then((url) => {
+                setPhotoURL3(url);
+            });
+        });
+
     };
 
     const handleChange = (event) => {
@@ -80,6 +107,9 @@ function ProductForm() {
                         <MenuItem value={"Cars"}>Cars</MenuItem>
                         <MenuItem value={"Bikes"}>Bikes</MenuItem>
                         <MenuItem value={"Electronics"}>Electronics</MenuItem>
+                        <MenuItem value={"Electronics"}>Accessories</MenuItem>
+                        <MenuItem value={"Electronics"}>Property</MenuItem>
+
                     </Select>
                 </div>
                 <div className="field">
@@ -120,16 +150,33 @@ function ProductForm() {
                         />
                     </div>
                 </div>
-                <div className="field">
+                <div className="field picker">
                     <label htmlFor="pass">Upload Photos</label>
                     <div className="inputfield">
                         <input type="file" className='addField' name="photos"
                             accept="image/png, image/jpeg"
                             id="photos" autoComplete='off'
-                            onChange={(e) => setPhotos(e.target.files[0])}
+                            onChange={(e) => setPhoto(e.target.files[0])}
                         />
                     </div>
 
+                    <div className="inputfield">
+                        <input type="file" className='addField' name="photos"
+                            accept="image/png, image/jpeg"
+                            id="photos" autoComplete='off'
+                            onChange={(e) => setPhoto2(e.target.files[0])}
+                        />
+                    </div>
+                    <div className="inputfield">
+                        <input type="file" className='addField' name="photos"
+                            accept="image/png, image/jpeg"
+                            id="photos" autoComplete='off'
+                            onChange={(e) => setPhoto3(e.target.files[0])}
+                        />
+                    </div>
+                    <div className="field">
+                        <button type='button' className="upBtn" onClick={uploadFile}>Upload</button>
+                    </div>
                 </div>
                 <div className="field">
                     <button type="submit" className="btn">Post Ad</button>

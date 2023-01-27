@@ -22,6 +22,7 @@
 
 .picker {
   display: flex;
+  gap: 12px;
 }
 
 Select {
@@ -165,3 +166,13 @@ label {
     align-items: center;
     justify-content: center;
   }
+.upBtn {
+    background-color: #8ebf42;
+    color: white;
+    cursor: pointer;
+    padding: 6px;
+    width: 8vw;
+    border: 1px solid grey;
+    border-radius: 8px;
+    font-size: 12px;
+}
