@@ -41,10 +41,11 @@ function featured(type) {
         <div className='featured'>
             <div className="title" >Featured Listings</div>
             <div className="card-container">
+                {/*
                 {demoData.map(item => {
                     return (<Card item={item} key={item.id}></Card>);
 
-                })}
+                })} */}
             </div>
         </div>
     )

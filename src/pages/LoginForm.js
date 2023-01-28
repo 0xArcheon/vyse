@@ -71,10 +71,8 @@ const LoginForm = (props) => {
                             <button onClick={() => props.onFormSwitch('signup')} className={LoginFormCSS.signup}>Sign Up</button>
                         </div>
                     </div>
-
                 </form>
             </div>
-
             <div className={LoginFormCSS.colRight}>
                 {<img src={"/images/SignupImg.png"} alt="sk" /*width="50vw" height="100vh" */ />}
             </div>
