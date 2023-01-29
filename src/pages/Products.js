@@ -35,9 +35,8 @@ function Products() {
                     }}
                     noValidate autoComplete="off">
                     <TextField id="filled-basic"
-                        label="ZIP Code" color="success" />
+                        label="ZIP Code" color="success" onChange={(e) => { setPincode(e.target.value) }} />
                 </Box>
-                <Button variant="outlined">Go</Button>
             </div>
             <div className="card-container">
                 {listing.map((data) => {

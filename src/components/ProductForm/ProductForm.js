@@ -9,7 +9,13 @@ import './ProductForm.css';
 import { v4 } from 'uuid';
 import { storage } from '../../firebase-config';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router-dom';
 
+
+const notify = () => toast("Upload Successful");
+const notifyAd = () => toast("Ad posted successfully");
 
 function ProductForm() {
     const [title, setTitle] = useState('');
@@ -45,9 +51,10 @@ function ProductForm() {
                 img1: photo1URL,
                 img2: photo2URL,
                 img3: photo3URL,
-
+                isApproved: false
             });
             console.log("Document written with ID: ", docRef.id);
+            notifyAd();
         } catch (e) {
             console.error("Error adding document: ", e);
         }
@@ -61,6 +68,7 @@ function ProductForm() {
             getDownloadURL(ref(storage, photo1Name)).then((url) => {
                 setPhotoURL(url);
             });
+            notify();
         });
 
         const photo2Name = `Listings/${photo2.name + v4()}`
@@ -69,6 +77,7 @@ function ProductForm() {
             getDownloadURL(ref(storage, photo2Name)).then((url) => {
                 setPhotoURL2(url);
             });
+            notify();
         });
 
         const photo3Name = `Listings/${photo3.name + v4()}`
@@ -77,6 +86,7 @@ function ProductForm() {
             getDownloadURL(ref(storage, photo3Name)).then((url) => {
                 setPhotoURL3(url);
             });
+            notify();
         });
 
     };
@@ -106,9 +116,11 @@ function ProductForm() {
                         onChange={handleChange}>
                         <MenuItem value={"Cars"}>Cars</MenuItem>
                         <MenuItem value={"Bikes"}>Bikes</MenuItem>
+                        <MenuItem value={"Furniture"}>Furniture</MenuItem>
+                        <MenuItem value={"Phones"}>Phones</MenuItem>
                         <MenuItem value={"Electronics"}>Electronics</MenuItem>
-                        <MenuItem value={"Electronics"}>Accessories</MenuItem>
-                        <MenuItem value={"Electronics"}>Property</MenuItem>
+                        <MenuItem value={"Accessories"}>Accessories</MenuItem>
+                        <MenuItem value={"Property"}>Property</MenuItem>
 
                     </Select>
                 </div>
@@ -182,6 +194,7 @@ function ProductForm() {
                     <button type="submit" className="btn">Post Ad</button>
                 </div>
             </form >
+            <ToastContainer autoClose={1200} />
         </div >
 
     )

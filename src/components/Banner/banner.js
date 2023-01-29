@@ -31,7 +31,7 @@ function Banner() {
                         <div style={{ width: 700 }}>
                             <DialogTitle>
                                 <DialogContent>
-                                    <ProductForm></ProductForm>
+                                    <ProductForm />
                                 </DialogContent>
                             </DialogTitle>
                         </div>

@@ -1,0 +1,46 @@
+.slider{
+    width: 40%;
+    float: left;
+    height: 45vh;
+}
+
+.image{
+    position: absolute;
+    top: 100px;
+    width: 23vw;
+    height: 53vh;
+    border-radius: 10px;
+}
+
+.rightarrow{
+    position: absolute;
+    top: 31%;
+    right: 1202px;
+    font-size: 3rem;
+    color: black;
+    z-index: 10;
+    cursor: pointer;
+    user-select: none;
+}
+
+.leftarrow{
+    position: absolute;
+    top: 31%;
+    left: 40px;
+    font-size: 3rem;
+    color: black;
+    z-index: 10;
+    cursor: pointer;
+    user-select: none;
+}
+
+.slide{
+    opacity: 0;
+    transition-duration: 1s ease;
+}
+
+.slide-active{
+    opacity: 1;
+    transition-duration: 1s;
+    transform: scale(1.08);
+}
