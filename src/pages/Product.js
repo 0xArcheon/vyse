@@ -1,33 +1,52 @@
-import React from 'react'
+import React, { useState } from 'react'
 import productCSS from './productCSS.module.css';
-import ImageSlider from '../components/ImageSlider/ImageSlider';
-import { SliderData } from '../components/ImageSlider/SliderData';
+import { useLocation } from "react-router-dom";
+import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
+import PinDropIcon from '@mui/icons-material/PinDrop';
+import SimpleImageSlider from "react-simple-image-slider";
 
-function Product() {
 
+function Product(props) {
+    const location = useLocation();
+    const productID = location.state?.product;
+    const title = location.state?.title;
+    const price = location.state?.price;
+    const description = location.state?.description;
+    const sellermail = location.state?.sellermail;
+    const pincode = location.state?.pincode;
+    const locality = location.state?.locality;
+    const img1 = location.state?.img1;
+    const img2 = location.state?.img2;
+    const img3 = location.state?.img3;
+
+    const images = [
+        { url: img1 },
+        { url: img2 },
+        { url: img3 }];
     return (
         <div>
             <div className={productCSS.productcont}>
                 <div className={productCSS.left}>
-                    <div className={productCSS.img}>
-                        <ImageSlider slides={SliderData} />
-                    </div>
+                    <SimpleImageSlider
+                        width={650}
+                        height={500}
+                        images={images}
+                        showBullets={true}
+                        showNavs={true}
+                    />
                 </div>
                 <div className={productCSS.right}>
-                    <h1>Nike Air Jordan 1</h1>
+                    <h1>{title}</h1>
                     <div className={productCSS.price}>
-                        Rs. 19999
+                        <CurrencyRupeeIcon></CurrencyRupeeIcon>
+                        {price}
                     </div>
                     <div className={productCSS.seller}>
-                        Seller: John Mctavish
+                        <PinDropIcon /><span>{pincode},</span><span>           </span><span>{locality}</span>
                     </div>
                     <div className={productCSS.desc}>
                         <h3>Description</h3>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Error eligendi quia perspiciatis sapiente possimus accusamus
-                        ipsa assumenda vel tenetur omnis ab totam quos quod quis,
-                        blanditiis quasi hic nihil. Alias. Lorem ipsum, dolor sit amet consectetur
-                        adipisicing elit. Ducimus, pariatur quod quia qui consequuntur quidem ea alias
+                        {description}
 
                     </div>
                     <div className={productCSS.contact}>

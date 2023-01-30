@@ -2,9 +2,23 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import "./card.css"
-function card({ data }) {
+import { useState } from 'react';
+function Card({ data }) {
+    const [product, setProduct] = useState(false);
     return (
-        <Link to={'/product/${data.id}'}>
+
+        <Link to={'/product/${data.title}'} state={{
+            product: data.id,
+            title: data.title,
+            description: data.description,
+            price: data.price,
+            sellermail: data.sellermail,
+            pincode: data.pincode,
+            locality: data.locality,
+            img1: data.img1,
+            img2: data.img2,
+            img3: data.img3,
+        }}>
             <div className='card'>
                 <div className="image">
                     <img src={data.img1} alt="" className="mainImg"></img>
@@ -30,4 +44,4 @@ function card({ data }) {
     )
 }
 
-export default card
+export default Card
