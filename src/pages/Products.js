@@ -22,6 +22,13 @@ function Products() {
         }
         getListing();
     }, []);
+
+    const filterPin = async () => {
+        const data = await getDocs(pinQuery);
+        setListing(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+    }
+
+
     return (
         <div className="products">
             <div className="search">
@@ -37,7 +44,9 @@ function Products() {
                     }}
                     noValidate autoComplete="off">
                     <TextField id="filled-basic"
-                        label="ZIP Code" color="success" onChange={(e) => { setPincode(e.target.value) }} />                </Box>
+                        label="ZIP Code" color="success" onChange={(e) => { setPincode(e.target.value) }} />
+                </Box>
+                <Button variant="contained" onClick={filterPin}>Go</Button>
             </div>
             <div className="card-container">
                 {listing.map((data) => {
