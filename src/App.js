@@ -4,7 +4,6 @@ import Home from './pages/Home';
 import Navbar from './components/Navbar/navbar';
 import Footer from './components/Footer/footer';
 import Login from './pages/Login';
-import AdminPanel from './pages/AdminPanel';
 
 import {
   createBrowserRouter,
@@ -12,7 +11,6 @@ import {
   Route,
   Outlet
 } from "react-router-dom";
-import { Children } from 'react';
 import Products from './pages/Products';
 import Product from './pages/Product';
 
@@ -30,10 +28,6 @@ const router = createBrowserRouter([
   {
     path: "/Login",
     element: <Login />
-  },
-  {
-    path: "/admin",
-    element: <AdminPanel />
   },
   {
     path: "/",

@@ -17,3 +17,6 @@
 .card-container {
     flex-wrap: wrap;
 }
+.pinGo {
+    width: 20px;
+}

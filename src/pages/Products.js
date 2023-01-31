@@ -5,17 +5,19 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { db } from '../firebase-config';
-import { collection, getDocs } from 'firebase/firestore';
+import { collection, getDocs, where, query } from 'firebase/firestore';
 
 function Products() {
 
     const [pincode, setPincode] = useState([]);
     const [listing, setListing] = useState([]);
-
     const listingRef = collection(db, "Listings");
+    const q = query(listingRef, where("isApproved", "==", true));
+    const pinQuery = query(listingRef, where("pincode", "==", pincode));
+
     useEffect(() => {
         const getListing = async () => {
-            const data = await getDocs(listingRef);
+            const data = await getDocs(q);
             setListing(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
         }
         getListing();
@@ -35,8 +37,7 @@ function Products() {
                     }}
                     noValidate autoComplete="off">
                     <TextField id="filled-basic"
-                        label="ZIP Code" color="success" onChange={(e) => { setPincode(e.target.value) }} />
-                </Box>
+                        label="ZIP Code" color="success" onChange={(e) => { setPincode(e.target.value) }} />                </Box>
             </div>
             <div className="card-container">
                 {listing.map((data) => {
