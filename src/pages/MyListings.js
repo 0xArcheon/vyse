@@ -1,11 +1,12 @@
 import React from 'react';
 import "./MyListings.css";
 import { useEffect } from "react";
-import Card from '../components/Card/card';
 import { db } from '../firebase-config';
-import { collection, getDocs, where, query } from 'firebase/firestore';
+import { collection, getDocs, where, query, deleteDoc, doc } from 'firebase/firestore';
 import { useState } from 'react';
 import { getAuth } from "firebase/auth";
+import { Button } from '@mui/material';
+import CardManage from '../components/Card/CardManage';
 
 function MyListings() {
 
@@ -24,11 +25,13 @@ function MyListings() {
     })
 
     return (
-        <div className="card-container">
-            {myListings.map((data) => {
-                return (<Card data={data} key={data.id}></Card>);
-
-            })}
+        <div>
+            <div className="title">My Listings</div>
+            <div className="card-container">
+                {myListings.map((data) => {
+                    return (<CardManage data={data} key={data.id}></CardManage>);
+                })}
+            </div>
         </div>
     )
 }
