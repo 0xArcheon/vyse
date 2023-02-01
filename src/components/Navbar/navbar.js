@@ -13,7 +13,6 @@ import "./navbar.css";
 import { REMOVE_ACTIVE_USER } from '../../redux/slice/authSlice';
 import { getAuth, signOut } from "firebase/auth";
 
-
 const { Search } = Input;
 function Navbar() {
     const [anchorEl, setAnchorEl] = useState(null);
@@ -35,6 +34,7 @@ function Navbar() {
 
         });
     }
+
     return (
         <div className='nav-container'>
             <div className='navbar'>
@@ -118,9 +118,11 @@ function Navbar() {
                 <MenuItem>
                     <FaceIcon /> Profile
                 </MenuItem>
-                <MenuItem>
-                    <BookmarkAddedIcon /> My Listings
-                </MenuItem>
+                <Link to="/mylistings">
+                    <MenuItem>
+                        <BookmarkAddedIcon /> My Listings
+                    </MenuItem>
+                </Link>
                 <MenuItem onClick={logoutUser}>
                     <Logout /> Logout
                 </MenuItem>

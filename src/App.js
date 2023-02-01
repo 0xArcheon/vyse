@@ -4,7 +4,7 @@ import Home from './pages/Home';
 import Navbar from './components/Navbar/navbar';
 import Footer from './components/Footer/footer';
 import Login from './pages/Login';
-
+import MyListings from './pages/MyListings';
 import {
   createBrowserRouter,
   RouterProvider,
@@ -44,6 +44,10 @@ const router = createBrowserRouter([
       {
         path: "/product/:id",
         element: <Product />
+      },
+      {
+        path: "/mylistings",
+        element: <MyListings />
       },
 
     ]

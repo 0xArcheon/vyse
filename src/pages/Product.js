@@ -42,7 +42,7 @@ function Product(props) {
                         {price}
                     </div>
                     <div className={productCSS.seller}>
-                        <PinDropIcon /><span>{pincode},</span><span>           </span><span>{locality}</span>
+                        <PinDropIcon /><span>{pincode},</span><span>                 </span><span>{locality}</span>
                     </div>
                     <div className={productCSS.desc}>
                         <h3>Description</h3>
@@ -50,7 +50,8 @@ function Product(props) {
 
                     </div>
                     <div className={productCSS.contact}>
-                        <button type="button">Contact Seller</button>
+                        <button type="button"><a href="mailto: ${}">
+                            Contact Seller</a></button>
                     </div>
                 </div>
             </div>

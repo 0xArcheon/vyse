@@ -24,6 +24,7 @@ function Home() {
                 dispatch(REMOVE_ACTIVE_USER())
             }
         })
+        console.log(auth.currentUser);
     })
     return (
         <div className='home'>

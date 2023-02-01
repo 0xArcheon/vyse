@@ -1,6 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Quattrocento+Sans&family=Raleway:wght@300&family=Roboto:wght@500&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 .img{
     width: 40%;
     height: 45vh;
@@ -19,7 +17,6 @@
 }
 
 .price{
-    font-family: 'Roboto', sans-serif;
     display: flex;
     font-size: 24px;
     color: #64518f;
@@ -38,7 +35,7 @@
     align-items: flex-start;
     justify-content:flex-start;
     padding: 15px;
-    width: 700px;
+    width: 550px; 
     height: 235px;
     border-radius: 12px;
     background-color: #E5E0FF;
@@ -62,9 +59,10 @@
 }
 
 .productcont {
-    margin : 50px 120px;
+    font-family: 'Lato', sans-serif;
+    margin : 80px 140px;
     display: flex;
-    gap: 24px;
+    gap: 64px;
 }
 
 .right {
