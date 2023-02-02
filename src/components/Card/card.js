@@ -12,7 +12,7 @@ function Card({ data }) {
             title: data.title,
             description: data.description,
             price: data.price,
-            sellermail: data.sellermail,
+            sellerMail: data.sellerMail,
             pincode: data.pincode,
             locality: data.locality,
             img1: data.img1,

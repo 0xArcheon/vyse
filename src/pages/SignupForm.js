@@ -3,6 +3,8 @@ import SignupFormCSS from './SignupForm.module.css'
 import { createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth"
 import { collection, addDoc } from "firebase/firestore"
 import { auth, db } from '../firebase-config'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const SignupForm = (props) => {
     const [name, setName] = useState('');
@@ -11,16 +13,19 @@ const SignupForm = (props) => {
     const [phone, setPhone] = useState('');
     const [user, setUser] = useState({});
 
+    const notify = () => toast("Account Created! Please use login");
     const handleSubmit = async (e) => {
         try {
             e.preventDefault();
             const user = await createUserWithEmailAndPassword(auth, email, password);
             console.log(user);
             storeData();
+            notify();
         }
         catch (error) {
             console.log(error.message);
-
+            const errorMsg = () => toast(error.message);
+            errorMsg();
         }
     }
 
@@ -57,7 +62,7 @@ const SignupForm = (props) => {
                     <div className={SignupFormCSS.field}>
                         <label htmlFor="name">Full Name</label>
                         <div className={SignupFormCSS.inputfield}>
-                            <input type="text" name="name" id="name" autoComplete='off'
+                            <input type="text" name="name" id="name" required autoComplete='off'
                                 value={name} onChange={(e) => setName(e.target.value)}
 
                             />
@@ -67,7 +72,7 @@ const SignupForm = (props) => {
                     <div className={SignupFormCSS.field}>
                         <label htmlFor="email">Email</label>
                         <div className={SignupFormCSS.inputfield}>
-                            <input type="email" name="email" id="email" autoComplete='off'
+                            <input type="email" name="email" id="email" required autoComplete='off'
                                 value={email} onChange={(e) => setEmail(e.target.value)}
                             />
                         </div>
@@ -76,7 +81,7 @@ const SignupForm = (props) => {
                     <div className={SignupFormCSS.field}>
                         <label htmlFor="phone">Phone</label>
                         <div className={SignupFormCSS.inputfield}>
-                            <input type="number" name="phone" id="phone" autoComplete='off'
+                            <input type="number" name="phone" id="phone" required autoComplete='off'
                                 value={phone} onChange={(e) => setPhone(e.target.value)}
 
                             />
@@ -86,7 +91,7 @@ const SignupForm = (props) => {
                     <div className={SignupFormCSS.field}>
                         <label htmlFor="pass">Password</label>
                         <div className={SignupFormCSS.inputfield}>
-                            <input type="password" name="pass" id="pass" autoComplete='off'
+                            <input type="password" name="pass" id="pass" required autoComplete='off'
                                 value={password} onChange={(e) => setPassword(e.target.value)}
                                 placeholder="Use at least 6 characters"
                             />
@@ -107,9 +112,9 @@ const SignupForm = (props) => {
             </div>
 
             <div className={SignupFormCSS.colRight}>
-                {<img src={"/images/SignupImg.png"} alt="sk"  /* width="50vw" height="100vh"*/ />}
+                {<img src={"/images/SignupImg.png"} alt="sk" />}
             </div>
-
+            <ToastContainer />
         </div>
 
 

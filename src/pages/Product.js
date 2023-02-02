@@ -12,13 +12,15 @@ function Product(props) {
     const title = location.state?.title;
     const price = location.state?.price;
     const description = location.state?.description;
-    const sellermail = location.state?.sellermail;
+    const sellerMail = location.state?.sellerMail;
     const pincode = location.state?.pincode;
     const locality = location.state?.locality;
     const img1 = location.state?.img1;
     const img2 = location.state?.img2;
     const img3 = location.state?.img3;
 
+    const sendMail = `mailto:${sellerMail}?subject=${title}`;
+    console.log(sendMail);
     const images = [
         { url: img1 },
         { url: img2 },
@@ -50,7 +52,7 @@ function Product(props) {
 
                     </div>
                     <div className={productCSS.contact}>
-                        <button type="button"><a href="mailto: ${}">
+                        <button type="button"><a href={sendMail}>
                             Contact Seller</a></button>
                     </div>
                 </div>

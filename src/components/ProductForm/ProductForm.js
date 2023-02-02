@@ -11,11 +11,10 @@ import { storage } from '../../firebase-config';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useNavigate } from 'react-router-dom';
 
 
 const notify = () => toast("Upload Successful");
-const notifyAd = () => toast("Ad posted successfully");
+const notifyAd = () => toast.success("Ad posted successfully");
 
 function ProductForm() {
     const [title, setTitle] = useState('');
@@ -57,6 +56,8 @@ function ProductForm() {
             notifyAd();
         } catch (e) {
             console.error("Error adding document: ", e);
+            const errorMsg = () => toast(e.message);
+            errorMsg();
         }
     }
 
@@ -101,7 +102,7 @@ function ProductForm() {
                 <div className="field" >
                     <label htmlFor="name">Product Name/Title</label>
                     <div className="inputfield">
-                        <input className='addField' type="text" name="title"
+                        <input className='addField' type="text" name="title" required
                             id="title" autoComplete='off'
                             value={title} onChange={(e) => setTitle(e.target.value)} />
                     </div>
@@ -109,7 +110,7 @@ function ProductForm() {
                 </div>
                 <div className="field">
                     <label htmlFor="name">Category</label>
-                    <Select labelId="demo-simple-select-label"
+                    <Select labelId="demo-simple-select-label" required
                         id="demo-simple-select"
                         value={category}
                         label="Category"
@@ -127,7 +128,7 @@ function ProductForm() {
                 <div className="field">
                     <label htmlFor="email">Asking Price (in Rupees)</label>
                     <div className="inputfield">
-                        <input type="number" name="price" id="price" autoComplete='off'
+                        <input type="number" name="price" id="price" autoComplete='off' required
                             value={price} onChange={(e) => setPrice(e.target.value)}
                         />
                     </div>
@@ -135,7 +136,7 @@ function ProductForm() {
                 <div className="field">
                     <label htmlFor="email">Description</label>
                     <div className="inputfield">
-                        <input type="text" className='addField' name="desciption"
+                        <input type="text" className='addField' name="desciption" required
                             id="desciption" autoComplete='off'
                             value={description} onChange={(e) => setDescription(e.target.value)}
                         />
@@ -145,7 +146,7 @@ function ProductForm() {
                 <div className="field">
                     <label htmlFor="pincode">Area PIN code</label>
                     <div className="inputfield">
-                        <input type="number" name="pincode" id="pincode" autoComplete='off'
+                        <input type="number" name="pincode" id="pincode" autoComplete='off' required
                             value={pincode} onChange={(e) => setPincode(e.target.value)}
 
                         />
@@ -155,7 +156,7 @@ function ProductForm() {
                 <div className="field">
                     <label htmlFor="pass">Locality</label>
                     <div className="inputfield">
-                        <input type="text" className='addField' name="address" id="address"
+                        <input type="text" className='addField' name="address" id="address" required
                             autoComplete='off'
                             value={locality} onChange={(e) => setLocality(e.target.value)}
                             placeholder=""
@@ -165,7 +166,7 @@ function ProductForm() {
                 <div className="field picker">
                     <label htmlFor="pass">Upload Photos</label>
                     <div className="inputfield">
-                        <input type="file" className='addField' name="photos"
+                        <input type="file" className='addField' name="photos" required
                             accept="image/png, image/jpeg"
                             id="photos" autoComplete='off'
                             onChange={(e) => setPhoto(e.target.files[0])}
@@ -173,14 +174,14 @@ function ProductForm() {
                     </div>
 
                     <div className="inputfield">
-                        <input type="file" className='addField' name="photos"
+                        <input type="file" className='addField' name="photos" required
                             accept="image/png, image/jpeg"
                             id="photos" autoComplete='off'
                             onChange={(e) => setPhoto2(e.target.files[0])}
                         />
                     </div>
                     <div className="inputfield">
-                        <input type="file" className='addField' name="photos"
+                        <input type="file" className='addField' name="photos" required
                             accept="image/png, image/jpeg"
                             id="photos" autoComplete='off'
                             onChange={(e) => setPhoto3(e.target.files[0])}
