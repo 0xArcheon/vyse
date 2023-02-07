@@ -1,6 +1,7 @@
 .banner {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 12%;
     align-items: center;
 }
 img {
@@ -14,4 +15,5 @@ img {
 }
 .bannertxt {
     font-weight: 850;
+    font-size: 42px;
 }
