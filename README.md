@@ -1,71 +1,56 @@
-# Getting Started with Create React App
+# Vyse
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+“Vyse” is a peer-to-peer online marketplace for buying and selling any kind of products or services. Vyse makes it so easy to connect people to buy, sell or exchange used goods and services. It allows users to design advertisements with pictures, control their selling and buying activities.
+
+
+## Overview 
+
+Vyse is designed to be used by two kinds of entity -
+
+* User : A user is someone who can perform actions like create listings, browse other listings, contact seller etc. Buyer and seller both are considered a single enity.
+
+* Admin : Admin is like a moderator who can approve or reject user created listings to minimise spam. The source code for admin is present in a separate repo, connected to the same firebase backend.
+
+## Screenshots
+
+Login
+![login](https://user-images.githubusercontent.com/45424465/217267606-effa0657-c5f8-4251-919c-71df90281453.png)
+
+Home Page
+![vyse home](https://user-images.githubusercontent.com/45424465/217267467-24ddf053-b807-4323-bcf7-e537aafb9294.png)
+
+Create Listing
+![create-listing](https://user-images.githubusercontent.com/45424465/217267656-a7c7294c-41d6-4382-883f-368e693d74b8.png)
+
+Browse Listing
+![Listings](https://user-images.githubusercontent.com/45424465/217267685-02f751d5-feb3-44d9-812f-3f3ba19defca.png)
+
+View Product
+![product](https://user-images.githubusercontent.com/45424465/217267727-540801c7-5e04-46ac-99e3-12e5896c1d39.png)
+
+
+## Tech Stack
+
+### Front-End -
+
+* React JS
+    * HTML5
+    * CSS3
+* Redux
+    * Redux-toolkit
+
+### Back-End - 
+
+* Google Firebase
+* Firestore Database
+* Firebase Authentication
+* Firebase Storage server
+
 
 ## Available Scripts
 
+Install dependencies: 
+### `npm install`
 In the project directory, you can run:
-
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-"# vyse" 
